@@ -1,5 +1,5 @@
 --- 
-title: "UnB - Data Science"
+title: "Risk Management"
 author: "Cayan Portela and Herbert Kimura"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
