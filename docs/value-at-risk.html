@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 Value-at-Risk | Risk Management</title>
+<meta name="author" content="Cayan Portela and Herbert Kimura">
+<meta name="description" content="3.1 Fundamentos O Value-at-Risk (VaR), abrasileirado para Valor em Risco, é uma das principais métricas de risco financeiro, podendo ser utilizado na análise de diversos riscos como, por exemplo,...">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="Chapter 3 Value-at-Risk | Risk Management">
+<meta property="og:type" content="book">
+<meta property="og:description" content="3.1 Fundamentos O Value-at-Risk (VaR), abrasileirado para Valor em Risco, é uma das principais métricas de risco financeiro, podendo ser utilizado na análise de diversos riscos como, por exemplo,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 Value-at-Risk | Risk Management">
+<meta name="twitter:description" content="3.1 Fundamentos O Value-at-Risk (VaR), abrasileirado para Valor em Risco, é uma das principais métricas de risco financeiro, podendo ser utilizado na análise de diversos riscos como, por exemplo,...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Risk Management</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Sobre</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">2</span> Introdução</a></li>
+<li><a class="active" href="value-at-risk.html"><span class="header-section-number">3</span> Value-at-Risk</a></li>
+<li><a class="" href="modelos-de-var.html"><span class="header-section-number">4</span> Modelos de VaR</a></li>
+<li><a class="" href="aplica%C3%A7%C3%B5es.html"><span class="header-section-number">5</span> Aplicações</a></li>
+<li><a class="" href="final-words.html"><span class="header-section-number">6</span> Final Words</a></li>
+<li><a class="" href="other-considerations.html"><span class="header-section-number">7</span> Other Considerations</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="value-at-risk" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Value-at-Risk<a class="anchor" aria-label="anchor" href="#value-at-risk"><i class="fas fa-link"></i></a>
+</h1>
+<div id="fundamentos" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Fundamentos<a class="anchor" aria-label="anchor" href="#fundamentos"><i class="fas fa-link"></i></a>
+</h2>
+<p>O Value-at-Risk (VaR), abrasileirado para Valor em Risco, é uma das principais métricas de risco financeiro, podendo ser utilizado na análise de diversos riscos como, por exemplo, risco de mercado, risco de crédito e risco operacional.\</p>
+<p>A origem do VaR, no entanto, foi em gestão de riscos de mercado, tendo se popularizado com a divulgação do RiskMetrics pelo J.P.Morgan. Uma das razões para a ampla disseminação do VaR é sua simplicidade. A despeito de riscos em instituições financeiras serem sutis, o VaR permitia sumarizar toda a complexidade das operações do banco em um único valor.\</p>
+<p>Apresentamos a seguir a definição do Value-at-Risk.\</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-1" class="definition"><strong>Definition 3.1  </strong></span>O Value-at-Risk (VaR) representa (i) a maior perda que não será excedida, em (ii) um determinado horizonte de tempo, com (iii) um determinado nível de confiança.</p>
+</div>
+<p>Nossa experiência é que essa definição, embora bastante curta, não é necessariamente inteligível. Vamos discutir um exemplo de VaR que ajuda a entender melhor a definição.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-2" class="example"><strong>Example 3.1  </strong></span><em>Suponha que um banco tenha rodado um modelo de risco de mercado na carteira de sua tesouraria e identificado que o VaR é de (i) BRL 3.5 milhões para o (ii) horizonte de tempo de 1 dia e para um (iii) nível de confiança de 95%.</em></p>
+<p><em>Neste exemplo, o banco identificou que, de hoje para amanhã (horizonte de tempo de 1 dia), existe 95% de probabilidade (nível de confiança) de sua carteira da tesouraria NÃO perder mais do que BRL 3.5 milhões (maior perda que não será excedida). Ou seja, existe 95% de probabilidade de a perda da carteira, de hoje para amanhã, não superar BRL 3.5 milhões. Note que o VaR não é uma medida que lhe dá uma confiança de 100%. No caso, existe 5% de probabilidade de a carteira ter uma perda, de hoje para amanhã, superior a BRL 3.5 milhões.</em></p>
+</div>
+<p>Uma pergunta usual é: “Por que então não se calcula um VaR com 100% de nível de confiança? Assim, o VaR daria uma ideia da perda máxima que jamais seria superada, podendo ser uma medida útil”.</p>
+<p>No entanto, o VaR é uma métrica prospectiva, definida em um determinado horizonte de tempo futuro, por exemplo, de hoje para amanhã. Assim, o problema é que ninguém tem uma bola de cristal para prever o que pode ocorrer amanhã com 100% de certeza.</p>
+<p>No caso de se trabalhar com 100% de nível de confiança, o gestor teria que dar uma estimativa de VaR de, por exemplo, BRL 1 sextilhão. Daí, pragmaticamente, com 100% de certeza, a perda da carteira de hoje para amanhã não ultrapassaria esse valor de BRL 1 sextilhão. No entanto, esse valor seria pouco útil para a tomada de decisão.</p>
+<p>A partir da discussão do parágrafo anterior, uma outra pergunta surge comumente: “Mas com 100% de chances, o VaR não poderia ser o valor total da carteira? Ou seja, com 100% de probabilidade em não perco mais do que tenho investido na carteira.”</p>
+<p>O problema é que esse raciocínio a serve para carteiras específicas. Em particular, você não tem chances de perder mais do que o valor da carteira, no caso em que a carteira não seja alavancada, isto é, que não possui exposições superiores ao capital investido.</p>
+<p>No entanto, é comum instituições financeiras trabalharem com posições alavancadas. Por exemplo, se a carteira possui empréstimos que foram usados para comprar ativos, se a carteira possui posições vendidas “a descoberto”, ou se a carteira tem posições em derivativos, pode eventualmente ter uma perda maior do que que seu próprio valor atual.</p>
+<p>Assim, em casos de carteiras alavancadas, as perdas podem ser expressivas, inclusive maiores do que o próprio valor da carteira. Portanto, diante desses elementos práticos, o mercado financeiro trabalha com níveis de confiança inferiores a 100% como, por exemplo, 95%, 97.5%, 99%, 99.9%.</p>
+</div>
+<div id="expected-shortfall" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Expected Shortfall<a class="anchor" aria-label="anchor" href="#expected-shortfall"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="tipos-de-risco-1" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Tipos de Risco<a class="anchor" aria-label="anchor" href="#tipos-de-risco-1"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="risco-de-mercado-1" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Risco de Mercado<a class="anchor" aria-label="anchor" href="#risco-de-mercado-1"><i class="fas fa-link"></i></a>
+</h2>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="intro.html"><span class="header-section-number">2</span> Introdução</a></div>
+<div class="next"><a href="modelos-de-var.html"><span class="header-section-number">4</span> Modelos de VaR</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#value-at-risk"><span class="header-section-number">3</span> Value-at-Risk</a></li>
+<li><a class="nav-link" href="#fundamentos"><span class="header-section-number">3.1</span> Fundamentos</a></li>
+<li><a class="nav-link" href="#expected-shortfall"><span class="header-section-number">3.2</span> Expected Shortfall</a></li>
+<li><a class="nav-link" href="#tipos-de-risco-1"><span class="header-section-number">3.3</span> Tipos de Risco</a></li>
+<li><a class="nav-link" href="#risco-de-mercado-1"><span class="header-section-number">3.4</span> Risco de Mercado</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Risk Management</strong>" was written by Cayan Portela and Herbert Kimura. It was last built on 2023-08-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,3 +1,40 @@
-# Literature
+# Value-at-Risk
 
-Here is a review of existing methods.
+## Fundamentos
+O Value-at-Risk (VaR), abrasileirado para Valor em Risco, é uma das principais métricas de risco financeiro, podendo ser utilizado na análise de diversos riscos como, por exemplo, risco de mercado, risco de crédito e risco operacional.\\ 
+
+A origem do VaR, no entanto, foi em gestão de riscos de mercado, tendo se popularizado com a divulgação do RiskMetrics pelo J.P.Morgan. Uma das razões para a ampla disseminação do VaR é sua simplicidade. A despeito de riscos em instituições financeiras serem sutis, o VaR permitia sumarizar toda a complexidade das operações do banco em um único valor.\\ 
+
+Apresentamos a seguir a definição do Value-at-Risk.\\
+
+::: {.definition}
+O Value-at-Risk (VaR) representa (i) a maior perda que não será excedida, em (ii) um determinado horizonte de tempo, com (iii) um determinado nível de confiança. 
+:::
+
+Nossa experiência é que essa definição, embora bastante curta, não é necessariamente inteligível. Vamos discutir um exemplo de VaR que ajuda a entender melhor a definição. 
+
+::: {.example}
+_Suponha que um banco tenha rodado um modelo de risco de mercado na carteira de sua tesouraria e identificado que o VaR é de (i) BRL 3.5 milhões para o (ii) horizonte de tempo de 1 dia e para um (iii) nível de confiança de 95\%._
+
+_Neste exemplo, o banco identificou que, de hoje para amanhã (horizonte de tempo de 1 dia), existe 95\% de probabilidade (nível de confiança) de sua carteira da tesouraria NÃO perder mais do que BRL 3.5 milhões (maior perda que não será excedida). Ou seja, existe 95\% de probabilidade de a perda da carteira, de hoje para amanhã, não superar BRL 3.5 milhões. Note que o VaR não é uma medida que lhe dá uma confiança de 100\%. No caso, existe 5\% de probabilidade de a carteira ter uma perda, de hoje para amanhã, superior a BRL 3.5 milhões._
+:::
+
+Uma pergunta usual é: "Por que então não se calcula um VaR com 100\% de nível de confiança? Assim, o VaR daria uma ideia da perda máxima que jamais seria superada, podendo ser uma medida útil". 
+
+No entanto, o VaR é uma métrica prospectiva, definida em um determinado horizonte de tempo futuro, por exemplo, de hoje para amanhã. Assim, o problema é que ninguém tem uma bola de cristal para prever o que pode ocorrer amanhã com 100\% de certeza. 
+
+No caso de se trabalhar com 100\% de nível de confiança, o gestor teria que dar uma estimativa de VaR de, por exemplo, BRL 1 sextilhão. Daí, pragmaticamente, com 100\% de certeza, a perda da carteira de hoje para amanhã não ultrapassaria esse valor de BRL 1 sextilhão. No entanto, esse valor seria pouco útil para a tomada de decisão. 
+
+A partir da discussão do parágrafo anterior, uma outra pergunta surge comumente: "Mas com 100\% de chances, o VaR não poderia ser o valor total da carteira? Ou seja, com 100\% de probabilidade em não perco mais do que tenho investido na carteira." 
+
+O problema é que esse raciocínio a serve para carteiras específicas. Em particular, você não tem chances de perder mais do que o valor da carteira, no caso em que a carteira não seja alavancada, isto é, que não possui exposições superiores ao capital investido. 
+
+No entanto, é comum instituições financeiras trabalharem com posições alavancadas. Por exemplo, se a carteira possui empréstimos que foram usados para comprar ativos, se a carteira possui posições vendidas "a descoberto", ou se a carteira tem posições em derivativos, pode eventualmente ter uma perda maior do que que seu próprio valor atual. 
+
+Assim, em casos de carteiras alavancadas, as perdas podem ser expressivas, inclusive maiores do que o próprio valor da carteira. Portanto, diante desses elementos práticos, o mercado financeiro trabalha com níveis de confiança inferiores a 100\% como, por exemplo, 95\%, 97.5\%, 99\%, 99.9\%. 
+
+## Expected Shortfall
+
+## Tipos de Risco
+
+## Risco de Mercado

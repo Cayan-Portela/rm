@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 5 Applications | Risk Management</title>
+<title>Chapter 5 Aplicações | Risk Management</title>
 <meta name="author" content="Cayan Portela and Herbert Kimura">
 <meta name="description" content="Some significant applications are demonstrated in this chapter.  5.1 Example one Operational Risk. Loss Distribution Approach. Creating sequence of dates. Simulated values will be regarded to a...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="Chapter 5 Applications | Risk Management">
+<meta property="og:title" content="Chapter 5 Aplicações | Risk Management">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Some significant applications are demonstrated in this chapter.  5.1 Example one Operational Risk. Loss Distribution Approach. Creating sequence of dates. Simulated values will be regarded to a...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 5 Applications | Risk Management">
+<meta name="twitter:title" content="Chapter 5 Aplicações | Risk Management">
 <meta name="twitter:description" content="Some significant applications are demonstrated in this chapter.  5.1 Example one Operational Risk. Loss Distribution Approach. Creating sequence of dates. Simulated values will be regarded to a...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -42,11 +42,11 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
-<li><a class="" href="intro.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Sobre</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">2</span> Introdução</a></li>
 <li><a class="" href="value-at-risk.html"><span class="header-section-number">3</span> Value-at-Risk</a></li>
 <li><a class="" href="modelos-de-var.html"><span class="header-section-number">4</span> Modelos de VaR</a></li>
-<li><a class="active" href="applications.html"><span class="header-section-number">5</span> Applications</a></li>
+<li><a class="active" href="aplica%C3%A7%C3%B5es.html"><span class="header-section-number">5</span> Aplicações</a></li>
 <li><a class="" href="final-words.html"><span class="header-section-number">6</span> Final Words</a></li>
 <li><a class="" href="other-considerations.html"><span class="header-section-number">7</span> Other Considerations</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -57,9 +57,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="applications" class="section level1" number="5">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="aplicações" class="section level1" number="5">
 <h1>
-<span class="header-section-number">5</span> Applications<a class="anchor" aria-label="anchor" href="#applications"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5</span> Aplicações<a class="anchor" aria-label="anchor" href="#aplica%C3%A7%C3%B5es"><i class="fas fa-link"></i></a>
 </h1>
 <p>Some <em>significant</em> applications are demonstrated in this chapter.</p>
 <div id="example-one" class="section level2" number="5.1">
@@ -68,7 +68,7 @@
 </h2>
 <p>Operational Risk. Loss Distribution Approach.</p>
 <p>Creating sequence of dates. Simulated values will be regarded to a weekly period of time.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co"># sequence of dates (weekly)</span></span>
 <span><span class="va">date_seq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.Date.html">seq.Date</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2022-01-01"</span><span class="op">)</span>,</span>
@@ -78,7 +78,7 @@
 <span><span class="va">n_week</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">date_seq</span><span class="op">)</span></span></code></pre></div>
 <p>Simulating data-set with poisson and negative binomial distributions.
 (explicar parametros e o que os valores da tabela significam. abc)</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sim_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  week <span class="op">=</span> <span class="va">date_seq</span>,</span>
 <span>  poisson <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span>n <span class="op">=</span> <span class="va">n_week</span>, lambda <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>,</span>
@@ -99,53 +99,53 @@
 <tbody>
 <tr class="odd">
 <td align="left">2022-01-01</td>
-<td align="right">17</td>
-<td align="right">10</td>
+<td align="right">15</td>
+<td align="right">3</td>
 </tr>
 <tr class="even">
 <td align="left">2022-01-08</td>
 <td align="right">18</td>
-<td align="right">10</td>
+<td align="right">7</td>
 </tr>
 <tr class="odd">
 <td align="left">2022-01-15</td>
-<td align="right">12</td>
-<td align="right">18</td>
+<td align="right">10</td>
+<td align="right">13</td>
 </tr>
 <tr class="even">
 <td align="left">2022-01-22</td>
+<td align="right">13</td>
 <td align="right">14</td>
-<td align="right">3</td>
 </tr>
 <tr class="odd">
 <td align="left">2022-01-29</td>
-<td align="right">14</td>
-<td align="right">5</td>
-</tr>
-<tr class="even">
-<td align="left">2022-02-05</td>
-<td align="right">12</td>
-<td align="right">19</td>
-</tr>
-<tr class="odd">
-<td align="left">2022-02-12</td>
-<td align="right">20</td>
 <td align="right">17</td>
-</tr>
-<tr class="even">
-<td align="left">2022-02-19</td>
-<td align="right">18</td>
-<td align="right">19</td>
-</tr>
-<tr class="odd">
-<td align="left">2022-02-26</td>
-<td align="right">15</td>
 <td align="right">2</td>
 </tr>
 <tr class="even">
-<td align="left">2022-03-05</td>
-<td align="right">19</td>
+<td align="left">2022-02-05</td>
+<td align="right">13</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">2022-02-12</td>
+<td align="right">9</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">2022-02-19</td>
+<td align="right">22</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">2022-02-26</td>
+<td align="right">16</td>
 <td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">2022-03-05</td>
+<td align="right">9</td>
+<td align="right">18</td>
 </tr>
 </tbody>
 </table></div>
@@ -155,7 +155,7 @@ Now we are going to use this values to simulate <span class="math inline">\(n\)<
 This will be our simulated severity loss.
 Gamma, Log-normal and Weibull.</p>
 <p>Customized function.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">severidade</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n_dist</span>, <span class="va">dist</span>, <span class="va">pars</span><span class="op">)</span> <span class="op">{</span></span>
 <span></span>
 <span>  <span class="va">random_function</span> <span class="op">&lt;-</span> <span class="kw"><a href="https://rdrr.io/r/base/switch.html">switch</a></span><span class="op">(</span><span class="va">dist</span>,</span>
@@ -171,7 +171,7 @@ Gamma, Log-normal and Weibull.</p>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">values</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Severity values with frquency genreated by poisson distribution</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sev_pois</span> <span class="op">&lt;-</span> <span class="va">sim_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">week</span>, <span class="va">poisson</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -206,7 +206,7 @@ Gamma, Log-normal and Weibull.</p>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#applications"><span class="header-section-number">5</span> Applications</a></li>
+<li><a class="nav-link" href="#aplica%C3%A7%C3%B5es"><span class="header-section-number">5</span> Aplicações</a></li>
 <li><a class="nav-link" href="#example-one"><span class="header-section-number">5.1</span> Example one</a></li>
 <li><a class="nav-link" href="#example-two"><span class="header-section-number">5.2</span> Example two</a></li>
 </ul>
