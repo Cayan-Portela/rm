@@ -99,53 +99,53 @@
 <tbody>
 <tr class="odd">
 <td align="left">2022-01-01</td>
-<td align="right">15</td>
-<td align="right">10</td>
+<td align="right">12</td>
+<td align="right">2</td>
 </tr>
 <tr class="even">
 <td align="left">2022-01-08</td>
-<td align="right">23</td>
-<td align="right">6</td>
+<td align="right">18</td>
+<td align="right">8</td>
 </tr>
 <tr class="odd">
 <td align="left">2022-01-15</td>
-<td align="right">19</td>
-<td align="right">9</td>
-</tr>
-<tr class="even">
-<td align="left">2022-01-22</td>
 <td align="right">14</td>
-<td align="right">16</td>
-</tr>
-<tr class="odd">
-<td align="left">2022-01-29</td>
-<td align="right">11</td>
 <td align="right">8</td>
 </tr>
 <tr class="even">
+<td align="left">2022-01-22</td>
+<td align="right">13</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">2022-01-29</td>
+<td align="right">10</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
 <td align="left">2022-02-05</td>
-<td align="right">17</td>
-<td align="right">19</td>
+<td align="right">18</td>
+<td align="right">11</td>
 </tr>
 <tr class="odd">
 <td align="left">2022-02-12</td>
-<td align="right">17</td>
-<td align="right">7</td>
+<td align="right">14</td>
+<td align="right">8</td>
 </tr>
 <tr class="even">
 <td align="left">2022-02-19</td>
-<td align="right">15</td>
-<td align="right">15</td>
+<td align="right">18</td>
+<td align="right">14</td>
 </tr>
 <tr class="odd">
 <td align="left">2022-02-26</td>
-<td align="right">15</td>
-<td align="right">17</td>
+<td align="right">11</td>
+<td align="right">12</td>
 </tr>
 <tr class="even">
 <td align="left">2022-03-05</td>
 <td align="right">21</td>
-<td align="right">13</td>
+<td align="right">8</td>
 </tr>
 </tbody>
 </table></div>
@@ -193,10 +193,100 @@ Gamma, Log-normal and Weibull.</p>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 </div>
-<div id="example-two" class="section level2" number="5.2">
+<div id="perceptron" class="section level2" number="5.2">
 <h2>
-<span class="header-section-number">5.2</span> Example two<a class="anchor" aria-label="anchor" href="#example-two"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2</span> Perceptron<a class="anchor" aria-label="anchor" href="#perceptron"><i class="fas fa-link"></i></a>
 </h2>
+<p>O pseudo-código algoritmo perceptron pode ser representado da seguinte maneira:</p>
+<ol style="list-style-type: decimal">
+<li>
+<span class="math inline">\(Loop: t = 1, \cdots, T\)</span>
+<ul>
+<li><blockquote>
+<span class="math inline">\(Loop: n = 1, \cdots, n\)</span>
+<ul>
+<li><span class="math inline">\(\text{aux} \quad = \quad y (\theta x + \theta)\)</span></li>
+<li>
+<span class="math inline">\(\text{If: aux} \le 0, \quad \text{then}\)</span>
+<ul>
+<li><span class="math inline">\(\theta_0 = \theta_0 + y^{(i)}\)</span></li>
+<li><span class="math inline">\(\theta = \theta + y^{(i)}x^{(i)}\)</span></li>
+</ul>
+</li>
+</ul>
+</blockquote></li>
+</ul>
+</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">3</span>, <span class="fl">4</span>, <span class="op">-</span><span class="fl">2</span>, <span class="fl">0</span><span class="op">)</span></span>
+<span><span class="va">x2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="op">-</span><span class="fl">3</span>, <span class="fl">0</span>, <span class="fl">4</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">y</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:unnamed-chunk-6">Table 5.2: </span>Exercício slide 95</caption>
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">i1</th>
+<th align="right">i2</th>
+<th align="right">i3</th>
+<th align="right">i4</th>
+<th align="right">i5</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">x1</td>
+<td align="right">1</td>
+<td align="right">-3</td>
+<td align="right">4</td>
+<td align="right">-2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">x2</td>
+<td align="right">4</td>
+<td align="right">-3</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">y</td>
+<td align="right">1</td>
+<td align="right">-1</td>
+<td align="right">1</td>
+<td align="right">-1</td>
+<td align="right">-1</td>
+</tr>
+</tbody>
+</table></div>
+<p>Algoritmo:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">n_</span> <span class="op">=</span> <span class="fl">5</span>; <span class="va">t_</span> <span class="op">=</span> <span class="fl">5</span>; <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="va">y_pred</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="va">t_</span><span class="op">)</span></span>
+<span><span class="va">theta_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="va">n_</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">theta_zero</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
+<span><span class="va">theta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">t_</span><span class="op">)</span><span class="op">{</span></span>
+<span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n_</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    </span>
+<span>    <span class="va">produto_theta_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">theta</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x1</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="va">x2</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span>    <span class="va">aux</span> <span class="op">&lt;-</span> <span class="va">y</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">*</span> <span class="va">produto_theta_x</span></span>
+<span></span>
+<span>    <span class="va">y_pred</span><span class="op">[[</span><span class="va">t</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">produto_theta_x</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">]</span> <span class="op">&lt;</span> <span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="op">+</span><span class="fl">1</span><span class="op">)</span></span>
+<span>    </span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">aux</span> <span class="op">&lt;=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span> <span class="co"># errou</span></span>
+<span>      <span class="va">theta_zero</span> <span class="op">&lt;-</span> <span class="va">theta_zero</span> <span class="op">+</span> <span class="va">y</span><span class="op">[</span><span class="va">i</span><span class="op">]</span></span>
+<span>      <span class="va">theta</span> <span class="op">&lt;-</span> <span class="va">theta</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x1</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="va">x2</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span>    </span>
+<span>    <span class="va">theta_list</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="va">t</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">theta_zero</span>, <span class="va">theta</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 
 </div>
 </div>
@@ -208,7 +298,7 @@ Gamma, Log-normal and Weibull.</p>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#aplica%C3%A7%C3%B5es"><span class="header-section-number">5</span> Aplicações</a></li>
 <li><a class="nav-link" href="#example-one"><span class="header-section-number">5.1</span> Example one</a></li>
-<li><a class="nav-link" href="#example-two"><span class="header-section-number">5.2</span> Example two</a></li>
+<li><a class="nav-link" href="#perceptron"><span class="header-section-number">5.2</span> Perceptron</a></li>
 </ul>
 
       <div class="book-extra">
@@ -225,7 +315,7 @@ Gamma, Log-normal and Weibull.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Risk Management</strong>" was written by Cayan Portela and Herbert Kimura. It was last built on 2023-08-22.</p>
+    <p>"<strong>Risk Management</strong>" was written by Cayan Portela and Herbert Kimura. It was last built on 2023-09-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

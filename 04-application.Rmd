@@ -133,4 +133,61 @@ sev_pois <- sim_data %>%
   )
 ```
 
-## Example two
+## Perceptron
+
+O pseudo-código algoritmo perceptron pode ser representado da seguinte maneira:
+
+1. $Loop: t = 1, \cdots, T$
+   -  > $Loop: n = 1, \cdots, n$ 
+      > + $\text{aux} \quad = \quad y (\theta x + \theta)$ 
+      > + $\text{If: aux} \le 0, \quad \text{then}$ 
+      >   + $\theta_0 = \theta_0 + y^{(i)}$
+      >   + $\theta = \theta + y^{(i)}x^{(i)}$
+
+
+
+```{r}
+x1 <- c(1, -3, 4, -2, 0)
+x2 <- c(4, -3, 0, 4, 1)
+y  <- c(1, -1, 1, -1, -1)
+```
+
+```{r, echo=FALSE}
+df_1 <- data.frame(rbind(x1, x2, y))
+colnames(df_1) <- paste0("i", 1:5)
+knitr::kable(
+  df_1, caption = "Exercício slide 95",
+  booktabs = TRUE)
+```
+
+Algoritmo:
+
+```{r}
+n_ = 5; t_ = 5; i = 1
+
+y_pred <- vector("list", t_)
+theta_list <- vector("list", n_)
+
+theta_zero <- 0
+theta <- matrix(c(0, 0), nrow=2)
+```
+
+```{r}
+for (t in 1:t_){
+
+  for (i in 1:n_) {
+    
+    produto_theta_x <- t(theta) %*% c(x1[i], x2[i])
+    aux <- y[i] * produto_theta_x
+
+    y_pred[[t]][i] <- ifelse(produto_theta_x[1,1] < 0, -1, +1)
+    
+    if (aux <= 0) { # errou
+      theta_zero <- theta_zero + y[i]
+      theta <- theta + t(y[i] %*% c(x1[i], x2[i]))
+    }
+    
+    theta_list[[i]][[t]] <- c(theta_zero, theta)
+  }
+}
+```
