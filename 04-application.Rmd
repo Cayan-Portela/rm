@@ -163,7 +163,7 @@ knitr::kable(
 Algoritmo:
 
 ```{r}
-n_ = 5; t_ = 5; i = 1
+n_ = 5; t_ = 3; i = 1
 
 y_pred <- vector("list", t_)
 theta_list <- vector("list", n_)
@@ -189,5 +189,18 @@ for (t in 1:t_){
     
     theta_list[[i]][[t]] <- c(theta_zero, theta)
   }
+}
+```
+
+```{r, comment=""}
+do_call_df <- function(df) {
+  x <- do.call(rbind, df) %>% as.data.frame()
+  as_tibble(x) %>%
+    rename(theta0 = V1, theta1 = V2, theta3 = V3)
+}
+
+for (i in 1:n_){
+  df1 <- do_call_df(theta_list[[i]])
+  print(df1)
 }
 ```
